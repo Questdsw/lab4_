@@ -22,3 +22,5 @@ echo "Dostępne opcje:"
   echo "               Użycie: skrypt.sh --error [liczba plików]"
   echo "  -h --help    Wyświetla tę pomoc"
 
+elif [[ $1 == "--init" ]]; then
+  git clone git@github.com:Questdsw/lab4_.git
