@@ -24,3 +24,25 @@ echo "Dostępne opcje:"
 
 elif [[ $1 == "--init" ]]; then
   git clone git@github.com:Questdsw/lab4_.git
+
+elif [[ $1 == "--error" || $1 == "-e" ]]; then
+  if [[ $2 =~ ^[0-9]+$ ]]; then
+    for ((i=1; i<=$2; i++)); do
+      dir="error$i"
+      mkdir -p $dir
+      filename="$dir/error$i.txt"
+      echo -e "Nazwa pliku: $filename\nNazwa skryptu: $0\nData: $(date)" > $filename
+    done
+  else
+    for ((i=1; i<=100; i++)); do
+      dir="error$i"
+      mkdir -p $dir
+      filename="$dir/error$i.txt"
+      echo -e "Nazwa pliku: $filename\nNazwa skryptu: $0\nData: $(date)" > $filename
+    done
+  fi
+
+else
+  echo "Nieznana opcja: $1"
+  echo "Użyj --help, aby uzyskać pomoc"
+fi
